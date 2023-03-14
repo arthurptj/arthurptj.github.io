@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- Template by html.am -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title> &mdash; Left Menu</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            max-height: 100%;
+            font-family: "consolas";
+            line-height: 1.5em;
+        }
+
+        #nav {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            /* Width of navigation frame */
+            height: 100%;
+            overflow: hidden;
+            /* Disables scrollbars on the navigation frame. To enable scrollbars, change "hidden" to "scroll" */
+            background: #ffffff;
+        }
+
+        main {
+            position: fixed;
+            top: 0;
+            left: 230px;
+            /* Set this to the width of the navigation frame */
+            right: 0;
+            bottom: 0;
+            overflow: auto;
+            background: #fff;
+        }
+
+        .innertube {
+            margin: 15px;
+            /* Provides padding for the content */
+        }
+
+        p {
+            color: #4b4b4b;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        /*IE6 fix*/
+        * html body {
+            padding: 0 0 0 230px;
+            /* Set the last value to the width of the navigation frame */
+        }
+
+        * html main {
+            height: 100%;
+            width: 100%;
+        }
+
+        .image-style {
+            /*this is image formating*/
+            height: 60vw;
+            min-height: 100px;
+            max-height: 400px;
+            border: 1px solid red;
+        }
+
+        .pstyle {
+            max-width: 600px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <main>
+        <div class="innertube">
+            <h3 id="syringePump">Syringe pump</h3>
+            <img src="./syringepump.jpg" alt="syringe pump" class="image-style">
+            <video class="image-style" src="./highflowsyringepump.mp4" controls></video>
+            <p class="pstyle">I designed and built this syringe pump after serveral failed gruling 12hr blood damage
+                experiments. The commercial syringe pumps that we had would fail for various reasons, their leadscew
+                nuts wearing excessively, overheating etc, and aditionally to quicken the blood hemolysis and thus
+                reduce the time of our experiments we wished to pump the fluid at much faster flow rates. <br><br>
+                It took about a week to design the pump, my exact design constrains being unknown and to reduce overall
+                design time I "overbuilt" the machine. Instead of a leadscrew i opted for a ballscrew, for better
+                positional control & wear resistance. It should be noted that probably a leadscrew makes more sense here
+                but when a ballscrew of decent quality can be bought for ~$50 its hard to say no. The control scheme was
+                written in arduino, and a large stepper motor drives the carraige up and down. I machined all the parts
+                myself using semimanual prototrac mills. <br><video class="image-style" src="syringepumpmotion.mp4"
+                    controls></video><br>
+                If i were to redesign this machine I would reverse the orientation of the ballscrew, so that it is
+                driven from the bottom side of the pump. This would ensure that the ballscrew root is in tension on the
+                downstroke of the syringes, which is the direction in which the highest force is exerted on the machine,
+                doing this I would be able to spec a much smaller ballscrew because buckling would no longer be the
+                failiure mode. The upstroke is a lesser force because a vacuum forms on the upstroke when the
+                experiments fluidic restriction is suffciently high. If this was a production machine the complex
+                multipart aluminum structure could be easily replaced with a custom aluminum extrusion. </p>
+            <br>
+
+            <h3 id="hotend">v9 Hotend</h3>
+            <img src="./v9hotend.jpeg" alt="v9 hotend complete" class="image-style">
+            <img src="./hotendthermal.PNG" alt="ehotend thermal" class="image-style">
+            <p class="pstyle">This is a personal project that i have been working on for a few months now. Simply it is
+                a high performance hotend for hightemp/ diy industrial 3dprinters. The main feature is a fully wear
+                resistant filament path, this is achieved with a silver brazed carbide tube in the copper block
+                "hotzone" and a zirconium ceramic tube in the aluminum "coldzone". Another feature is a nonstructural
+                heatbreak of a novelish design, the lasercut titianium triangles. Titanium was chosen for its low heat
+                transfer
+                coef of ~[7W/mK] and its strength, the geometry of the triangles themselves decrease the overall heat
+                transfer from hotzone to coldzone by dcreasing the effective crossectional area. The zirconium tube was
+                chosen for its extremly high hardness and its heat transfer coef being ~[3W/mK]. Total heat transfer of
+                the device is [5W] with a heat delta of 465[degC], this was determined in SOLIDWORKS simulations. An
+                issue that has arisen is sealing the joint
+                between the carbide and zirconium tubes, due to the extreme hardness of each material there is no chance
+                of deforming the seat into a hydraulic seal. So the only option besides sticking a deformable copper
+                washer between the two is lapping their faces until they match eachother, how well this will work is
+                still to be seen.
+                <br>
+                <br>
+                The grade of copper chosen for the hotblock is C18150, which is a particularly high strength/hardness
+                copper. During the silver brazing operation the copper looses its hardness but fortunately due to it
+                being a precipitaiton hardening grade it is quite easy to bring the hardness back up.
+            </p>
+            <br>
+            <h3 id="maglev">magnetic bearing</h3>
+            <img src="./2-20-23 stator assembly.PNG" alt="stator assembly" class="image-style">
+            <p class="pstyle"> Pictured is a "slice" bearing /motor. This magnetic bearing topology is particularly
+                suited for centrifugal pumping applications as it is passively stable axialy 'Z' and in tilting about 'X
+                & Y'. Its radial position is the only axis that needs real time control. <br><br>
+                Ive been working on this project on and off for a few years at RIT. The intial design was quickly thrown
+                together to meet some grant deadlines and provide a baseline for improvements and optimizations. </p>
+            <img src="./iteration1magneticbearing.jpg" alt="first iteration" class="image-style">
+            <p class="pstyle">
+                The stator is made from wire EDM cast iron as it is a reasonably high permeability material. The rotor
+                is a custom dipole neodynium magnet.</p>
+
+            <img src="./nominalXYZ.png" alt="nominal performance" class="image-style">
+            <img src="./improvedXYZ.png" alt="improved performance" class="image-style">
+            <p class="pstyle">
+                Above are graphs of the magnetic performance of the bearing, before and after an iteration of 1
+                dimensional
+                geometric optimizations. The simulation was run in COMSOL ACDC. Unfortunately we did not posess the
+                optimization toolbox for COMSOL, so I had to write some strange interface in matlab to change the
+                parameters of the comsol model. There are some minor gains, axial stiffness increasing by ~[2 N/mm], and
+                radial "unstiffness" decreasing by ~[4 N/mm].</p>
+            <img src="./nominalGeometry.PNG" alt="nominal geometry" class="image-style">
+            <img src="./Improved Geometry.PNG" alt="improved geometry" class="image-style">
+            <p class="pstyle">
+                here you can see the geometric parameters that were varied to improve the performance. </p>
+            <img src="./currentBearing.jpeg" alt="current bearing" class="image-style">
+            <p class="pstyle">
+                Now the stator arms are made of laminated steel, which has a much higher permeability. The laminations
+                were lasercut and then laminated together with probably non optimal glue. The laminations should
+                increase performance quite a bit as they only allow eddy currents to form in plane with the laminations.
+                The arms are clamped into a cast iron base, ideally the whole structure would be laminated steel but
+                this topology can not be easily constructed in that way. The clamping feature also lets us easily swap
+                coils in and out. <br><br>
+                there are many next steps for this project, the main being to LEVITATE, which I hope to complete by May.
+            </p>
+            <br><br><br><br><br>
+        </div>
+    </main>
+
+    <nav id="nav">
+        <div class="innertube">
+
+            <h2>some projects</h2>
+            <ul>
+                <li><a href="#syringePump">syringe pump</a></li>
+                <li><a href="#hotend">hotend</a></li>
+                <li><a href="#maglev">magnetic bearing</a></li>
+            </ul>
+            <p style="position: absolute; bottom: 0;"> axt4093@rit.edu
+            </p>
+        </div>
+    </nav>
+
+</body>
+
+</html>
